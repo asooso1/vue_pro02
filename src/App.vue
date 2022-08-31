@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <NavBar />
-    <BannerBar />
-    <SearchBar />
     <router-view />
     <FooterBar />
   </div>
@@ -11,15 +9,11 @@
 <script>
 import NavBar from "@/components/NavBar.vue"
 import FooterBar from "@/components/FooterBar.vue"
-import BannerBar from  "@/components/BannerBar.vue"
-import SearchBar from "@/components/SearchBar.vue"
 export default {
   name: 'App',
   components: {
     NavBar,
     FooterBar,
-    BannerBar,
-    SearchBar
   },
   data: () => ({
     //

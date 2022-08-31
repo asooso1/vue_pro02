@@ -18,8 +18,8 @@
         </button>
         <button
           class="bttn-stretch bttn-md bttn-danger login-btn"
-        @click="goToMain">
-        <p id="nav-text">조직</p>
+        @click="goToSearch">
+        <p id="nav-text">검색하기</p>
         </button>
         
       </div>
@@ -52,6 +52,9 @@ export default {
     },
     goToMain() {
       this.$router.push({ name: "MainView" }).catch(() => {});
+    },
+    goToSearch() {
+      this.$router.push({ name: "SearchView"}).catch(() => {});
     },
     searchTeam() {
       axios({

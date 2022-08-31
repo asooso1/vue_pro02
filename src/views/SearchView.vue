@@ -1,14 +1,15 @@
 <template>
   <div class="home">
     <BannerBar :isHome="true" />
-    <TeamList />
+    <SearchBar @setInput="updateData"/>
+    <SearchList :userData="userData"/>
   </div>
 </template>
 
 <script>
-  import TeamList from '../components/TeamList.vue'
+  import SearchList from '../components/SearchList.vue'
   import BannerBar from  "@/components/BannerBar.vue"
-
+  import SearchBar from "@/components/SearchBar.vue"
 
   export default {
     name: 'HomeView',
@@ -25,8 +26,9 @@
       }
     },
     components: {
-    TeamList,
-    BannerBar
+    SearchList,
+    BannerBar,
+    SearchBar
   },
   methods: {
     updateData(emitData){
@@ -36,10 +38,3 @@
 
   }
 </script>
-
-<style>
-  .home {
-    background: linear-gradient(to top, #FDF7F1, #fff);
-  }
-</style>
-

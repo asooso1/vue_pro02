@@ -33,12 +33,6 @@ export default {
   methods: {
 
   },
-  mounted() {
-    if (this.isHome) {
-      this.textAnimation();
-    }
-  },
-
 };
 </script>
 

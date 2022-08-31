@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
     <h2>사원정보를 검색해보세요.</h2>
-    <input type="text" v-model="keyword" @keyup.enter="searchKeyword" />
+    <input type="text" v-model="keyword" @keyup.enter="searchKeyword" placeholder="ex) 김나린 혹은 2232783"/>
     <button class="material-icons search-btn" @click="searchKeyword">
       search
     </button>
@@ -15,17 +15,13 @@ export default {
   data() {
     return {
       keyword: null, // 검색키워드
-      taskData: [{
-        system_no:0,
-        system_name:"",
-        system_category:"",
-        task_no:0,
-        task:"",
-        task_description:"",
-        manager_no:0,
-        manager_name:"",
-        manager_tel:"",
-        manager_duty:""
+      userData: [{
+        user_id:"",
+        user_num:"",
+        group_code:"",
+        user_nm:"",
+        user_mobile:"",
+        user_email:"",
       }],
     }
   },
@@ -33,11 +29,11 @@ export default {
     searchKeyword() {
       axios({
         method: "get",
-        url: `http://localhost:8000/api/search/word/${this.keyword}`
+        url: `http://localhost:8000/api/user/${this.keyword}`
       }).then((res) => {
         console.log(res);
-        this.taskData = res.data;
-        this.$emit("setInput", this.taskData);
+        this.userData = res.data;
+        this.$emit("setInput", this.userData);
       }).catch((err) => {
         console.log(err)
       })
