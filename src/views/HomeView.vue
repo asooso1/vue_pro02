@@ -1,15 +1,15 @@
 <template>
-  <hello-world />
+  <TeamList />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import TeamList from '../components/TeamList.vue'
 
   export default {
     name: 'HomeView',
 
     components: {
-      HelloWorld,
+      TeamList,
     },
   }
 </script>
