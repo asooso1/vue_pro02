@@ -13,7 +13,12 @@ const routes = [
     path: '/search',
     name: 'SearchView',
     component: () => import("@/views/SearchView.vue")
-  }
+  },
+  {
+    path: "/grade",
+    name: "GradeView",
+    component: () => import("@/views/GradeView.vue")
+  },
 ]
 
 const router = new VueRouter({

@@ -44,12 +44,13 @@
         expanded: [],
         headers: [
           { text: "이름", align: "start", value: "user_nm", sortable: true, width: '10%'},
-          { text: "사번", align: "start", value: "user_num", sortable: true, width: '10%' },
+          { text: "사번", align: "start", value: "user_num", sortable: true, width: '15%' },
           { text: "이메일", align: "start", value: "user_email", sortable: true, width: '15%' },
-          { text: "번호", align: "start", value: "user_mobile", sortable: true, width: '45%' },
-          { text: "그룹코드", align: "start", value: "group_code", sortable: true,  width: '10%' },
-          { text: "아이디", align: "start", value: "user_id", sortable: true ,  width: '10%'},
-        ],
+          { text: "번호", align: "start", value: "user_mobile", sortable: true, width: '15%' },
+          { text: "팀", align: "start", value: "group_nm", sortable: true,  width: '2z0%' },
+          { text: "직위", align: "start", value: "grade_nm", sortable: true ,  width: '10%'},
+          { text: "내선번호", align: "start", value: "user_office", sortable: true ,  width: '25%'},
+            ],
       };
     },
     methods: {
@@ -68,7 +69,7 @@
   
   .elevation-1 {
     margin-top: 2rem;
-    width: 50rem;
+    width: 90rem;
   }
   
   .v-application {

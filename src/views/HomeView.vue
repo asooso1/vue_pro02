@@ -2,10 +2,8 @@
   <div class="home">
     <BannerBar :isHome="true" />
     <SearchBar @setInput="updateData" />
-    <span>
       <TeamList />
       <SearchList :userData="userData" />
-    </span>
   </div>
 </template>
 
@@ -27,6 +25,9 @@ export default {
         user_nm: "",
         user_mobile: "",
         user_email: "",
+        group_nm:"",
+        grade_nm:"",
+        user_office:""
       }],
     }
   },
@@ -51,10 +52,10 @@ export default {
         console.log(err);
       })
     },
-    mounted() {
+  },
+  mounted() {
       this.showAll();
     }
-  }
 }
 </script>
 

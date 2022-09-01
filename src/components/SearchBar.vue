@@ -23,6 +23,9 @@ export default {
         user_nm:"",
         user_mobile:"",
         user_email:"",
+        group_nm:"",
+        grade_nm:"",
+        user_office:""
       }],
     }
   },

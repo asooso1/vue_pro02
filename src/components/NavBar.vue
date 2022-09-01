@@ -1,20 +1,15 @@
 <template>
   <div class="nav">
-    <div class="logo" @click="goToHome">
+    <div class="logo" @click="goToHome()">
       <span class="hcn" style="color: #414042">Hyper Connected Network</span>
     </div>
     <div class="menu">
       <div class="login-join">
-        <button
-          class="bttn-stretch bttn-md bttn-danger login-btn"
-        @click="goToMain">
-        <p id="nav-text">직책</p>
-        </button>
         <button 
         class="bttn-stretch bttn-md bttn-danger join-btn"
-        @click="searchTeam"
+        @click="goToGrade()"
         >
-        <p id="nav-text">직급</p>
+        <p id="nav-text">조직도</p>
         </button>      
       </div>
     </div>
@@ -41,14 +36,11 @@ export default {
     
   },
   methods: {
+    goToGrade() {
+      this.$router.push({ name: "GradeView" }).catch(() => {});
+    },
     goToHome() {
       this.$router.push({ name: "HomeView" }).catch(() => {});
-    },
-    goToMain() {
-      this.$router.push({ name: "MainView" }).catch(() => {});
-    },
-    goToSearch() {
-      this.$router.push({ name: "SearchView"}).catch(() => {});
     },
     searchTeam() {
       axios({
