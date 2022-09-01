@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <BannerBar :isHome="true" SubText="조직도 조회" />
+        <BannerBar :isHome="true" SubText="조직도" />
         <SearchBar />
         음~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     </div>

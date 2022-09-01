@@ -2,7 +2,7 @@
   <div class="home">
     <BannerBar :isHome="true" />
     <SearchBar @setInput="updateData" />
-      <TeamList />
+      <TeamList @setInput="updateData"/>
       <SearchList :userData="userData" />
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
     showAll() {
       axios ({
         method: "get",
-        url: `http://localhost:8000/api/user`
+        url: `http://localhost:8000/api/user`,
       }).then((res) => {
         console.log(res);
         this.userData = res.data;

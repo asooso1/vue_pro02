@@ -1,5 +1,4 @@
 <template>
-  <div>
     <!-- 1번.. -->
     <!-- <ul v-for="(idx) in parentData"
     :key="idx.no">
@@ -69,7 +68,6 @@
         </v-list-group>
       </v-list>
     </v-card>
-  </div>
 
 </template>
 
@@ -125,14 +123,26 @@ export default {
       // var KeyWord = e.target.id;
       axios({
         method: "get",
-        url: `http://localhost:8000/api/group/${e}`
+        url: `http://localhost:8000/api/group/${e}`,
       }).then((res) => {
         console.log(res)
         this.childData = res.data;
+        // a(this.childData.group_nm);
       }).catch((err) => {
         console.log(err)
       })
-    }
+    },
+    // a(){
+    //   axios({
+    //     method: "get",
+    //     url: `http://localhost:8000/api/user/group/${this.childData.group_nm}`
+    //   }).then((res) => {
+    //     console.log(res);
+    //     this.userData() = res.data;
+    //   }).catch((err) => {
+    //     console.log(err);
+    //   })
+    // }
   },
   mounted() {
     this.parent()
