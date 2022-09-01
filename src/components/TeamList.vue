@@ -60,10 +60,10 @@
         v-model="item.group_nm"
         :key="i"
         :value="true"
+        prepend-icon="mdi-square-small"
         mandatory
         color="indigo"
-        prepend-icon="mdi-square-small"
-      >
+        >
         <template v-slot:activator>
           <v-list-item-title :id="item.group_enm" v-text="item.group_enm" @click="showChild"></v-list-item-title>
         </template>

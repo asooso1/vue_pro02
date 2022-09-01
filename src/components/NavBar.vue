@@ -15,13 +15,7 @@
         @click="searchTeam"
         >
         <p id="nav-text">직급</p>
-        </button>
-        <button
-          class="bttn-stretch bttn-md bttn-danger login-btn"
-        @click="goToSearch">
-        <p id="nav-text">검색하기</p>
-        </button>
-        
+        </button>      
       </div>
     </div>
   </div>
