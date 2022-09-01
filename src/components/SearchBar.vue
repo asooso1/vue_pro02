@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: "SearchBar",
   data() {
@@ -37,6 +38,21 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
+    },
+    showAll() {
+      axios ({
+        method: "get",
+        url: `http://localhost:8000/api/user`
+      }).then((res) => {
+        console.log(res);
+        this.userData = res.data;
+        this.$emit("setInput", this.userData);
+      }).catch((err) => {
+        console.log(err);
+      })
+    },
+    mounted() {
+      this.showAll();
     }
   }
 };

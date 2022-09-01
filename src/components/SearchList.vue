@@ -22,6 +22,7 @@
   </template>
   
   <script>
+  
   export default {
     name: "SearchList",
     props: {
@@ -52,7 +53,6 @@
       };
     },
     methods: {
-      // router
     },
   };
   </script>
