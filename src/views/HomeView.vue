@@ -2,8 +2,12 @@
   <div class="home">
     <BannerBar :isHome="true" />
     <SearchBar @setInput="updateData" />
-      <TeamList @setInput="updateData"/>
-      <SearchList :userData="userData" />
+    <v-app>
+      <v-card  class="d-flex flex-row">
+        <TeamList @dataUpdate="updateData"/>
+        <SearchList :userData="userData" />
+      </v-card>
+    </v-app>
   </div>
 </template>
 
@@ -55,7 +59,7 @@ export default {
   },
   mounted() {
       this.showAll();
-    }
+  }
 }
 </script>
 
