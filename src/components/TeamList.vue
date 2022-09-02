@@ -147,7 +147,7 @@ export default {
     parent: function() {
       axios({
         method: "get",
-        url: `http://localhost:8000/api/group`
+        url: `http://localhost:8000/api/group/hcn`
       }).then((res) => {
         console.log(res)
         this.parentData = res.data;
@@ -161,7 +161,7 @@ export default {
     newParent: async function() {
       await axios({
         method: "get",
-        url: `http://localhost:8000/api/group`
+        url: `http://localhost:8000/api/group/hcn`
       }).then((res) => {
         console.log(res)
         

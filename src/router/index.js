@@ -19,6 +19,11 @@ const routes = [
     name: "GradeView",
     component: () => import("@/views/GradeView.vue")
   },
+  {
+    path: "/title",
+    name: "TitleView", 
+    component: () => import("@/views/TitleView.vue")
+  }
 ]
 
 const router = new VueRouter({

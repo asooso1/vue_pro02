@@ -11,15 +11,14 @@
                                 <v-icon>mdi-account-circle</v-icon>
                             </v-list-item-icon>
 
-                            <v-list-item-title> 직급</v-list-item-title>
+                            <v-list-item-title> 직책</v-list-item-title>
                         </v-list-item>
                     </v-list>
-                    <v-list-group v-for="(item, idx) in gradeData" v-model="item.grade_nm" :key="idx" no-action
-                        prepend-icon="mdi-square-small" mandatory color="indigo" :id="item.grade_nm"
-                        @click="showGrade(item.grade_nm)">
+                    <v-list-group v-for="(item, idx) in titleData" v-model="item.title_nm" :key="idx" :value="false"
+                        no-action prepend-icon="mdi-square-small" mandatory color="indigo" :id="item.title_nm">
                         <template v-slot:activator>
                             <v-list-item-content>
-                                <v-list-item-title v-text="item.grade_nm"></v-list-item-title>
+                                <v-list-item-title v-text="item.title_nm"></v-list-item-title>
                             </v-list-item-content>
                         </template>
                     </v-list-group>
@@ -40,7 +39,7 @@ export default {
     name: 'GradeView',
     data() {
         return {
-            gradeData: [{}],
+            titleData: [{}],
             userData: [{}]
         }
     },
@@ -56,34 +55,34 @@ export default {
         showAll() {
             axios({
                 method: "get",
-                url: `http://localhost:8000/api/grade`
+                url: `http://localhost:8000/api/title`
             }).then((res) => {
                 console.log(res);
-                this.gradeData = res.data;
-                axios ({
-                    method:"get", 
-                    url:`http://localhost:8000/api/user/hcn`
-                }).then((res)=>{
+                this.titleData = res.data;
+                axios({
+                    method: "get",
+                    url: `http://localhost:8000/api/user/title/팀장`
+                }).then((res) => {
                     console.log(res);
                     this.userData = res.data;
-                }).catch((err)=>{
+                }).catch((err) => {
                     console.log(err);
                 })
             }).catch((err) => {
                 console.log(err);
             })
         },
-        showGrade(nm) {
-            axios({
-                method: "get",
-                url: `http://localhost:8000/api/user/grade/${nm}`
-            }).then((res) => {
-                console.log(res);
-                this.userData = res.data;
-            }).catch((err) => {
-                console.log(err);
-            })
-        }
+        // showGrade(nm) {
+        //     axios({
+        //         method: "get",
+        //         url: `http://localhost:8000/api/user/title/${nm}`
+        //     }).then((res) => {
+        //         console.log(res);
+        //         this.userData = res.data;
+        //     }).catch((err) => {
+        //         console.log(err);
+        //     })
+        // }
     },
     mounted() {
         this.showAll();

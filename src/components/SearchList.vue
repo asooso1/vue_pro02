@@ -1,24 +1,15 @@
 <template>
   <div>
-    <v-data-table
-      v-model="selected"
-      class="elevation-1 mr-3"
-      :headers="headers"
-      :items="userData"
-      hide-default-footer
-      show-select
-      :single-select="false"
-      item-key="user_id"
-      :page.sync="page"
-      @page-count="pageCount = $event"
-      :items-per-page="10"
-    >
+    <v-data-table v-model="selected" class="elevation-1 mr-3" :headers="headers" :items="userData" hide-default-footer
+      show-select :single-select="false" item-key="user_id" :page.sync="page" @page-count="pageCount = $event"
+      :items-per-page="10">
     </v-data-table>
-    <v-pagination 
-      v-model="page" 
-      :length="pageCount"
-      :total-visible="10"
-    ></v-pagination>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn color="blue darken-1" text >수정</v-btn>
+      <v-btn color="blue darken-1" text >삭제</v-btn>
+    </v-card-actions>
+    <v-pagination v-model="page" :length="pageCount" :total-visible="10"></v-pagination>
   </div>
 </template>
   
@@ -27,7 +18,7 @@
 export default {
   name: "SearchList",
   props: {
-    userData : Array,
+    userData: Array,
   },
   data() {
     return {
@@ -44,14 +35,14 @@ export default {
       selected: [],
       expanded: [],
       headers: [
-        { text: "이름", align: "start", value: "user_nm", sortable: true, width: '10%'},
-        { text: "사번", align: "start", value: "user_num", sortable: true, width: '15%' },
+        { text: "이름", align: "start", value: "user_nm", sortable: true, width: '10%' },
+        { text: "사번", align: "start", value: "user_num", sortable: true, width: '10%' },
         { text: "이메일", align: "start", value: "user_email", sortable: true, width: '15%' },
         { text: "번호", align: "start", value: "user_mobile", sortable: true, width: '15%' },
-        { text: "팀", align: "start", value: "group_nm", sortable: true,  width: '20%' },
-        { text: "직위", align: "start", value: "grade_nm", sortable: true ,  width: '10%'},
-        { text: "내선번호", align: "start", value: "user_office", sortable: true ,  width: '25%'},
-          ],
+        { text: "팀", align: "start", value: "group_nm", sortable: true, width: '15%' },
+        { text: "직급", align: "start", value: "grade_nm", sortable: true, width: '10%' },
+        { text: "내선번호", align: "start", value: "user_office", sortable: true, width: '25%' },
+      ],
     };
   },
   methods: {
@@ -76,5 +67,4 @@ export default {
 .v-application {
   max-height: 80vh;
 }
-
 </style>

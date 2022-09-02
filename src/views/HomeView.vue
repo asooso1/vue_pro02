@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <BannerBar :isHome="true" />
-    <SearchBar @setInput="updateData" />
+    <SearchBar @setInput="updateData" @setHcnGroup="setHcnGroup" @setHcnUser="setHcnUser"
+    @setCpGroup="setCpGroup" @setCpUser="setCpUser" />
     <v-app>
       <v-card  class="d-flex flex-row">
         <TeamList @dataUpdate="updateData"/>
@@ -16,7 +17,7 @@ import TeamList from '../components/TeamList.vue'
 import BannerBar from "@/components/BannerBar.vue"
 import SearchBar from '@/components/SearchBar.vue'
 import SearchList from '../components/SearchList.vue'
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'HomeView',
@@ -33,6 +34,7 @@ export default {
         grade_nm:"",
         user_office:""
       }],
+      groupData: [{}]
     }
   },
   components: {
@@ -45,21 +47,33 @@ export default {
     updateData(emitData) {
       this.userData = emitData;
     },
-    showAll() {
-      axios ({
-        method: "get",
-        url: `http://localhost:8000/api/user`,
-      }).then((res) => {
-        console.log(res);
-        this.userData = res.data;
-      }).catch((err) => {
-        console.log(err);
-      })
+    setHcnGroup(emitData){
+      this.groupData = emitData;
     },
+    setCpGroup(emitData){
+      this.groupData = emitData;
+    },
+    setHcnUser(emitData){
+      this.userData = emitData;
+    },
+    setCpUser(emitData){
+      this.userData = emitData;
+    },
+    // showAll() {
+    //   axios ({
+    //     method: "get",
+    //     url: `http://localhost:8000/api/user`,
+    //   }).then((res) => {
+    //     console.log(res);
+    //     this.userData = res.data;
+    //   }).catch((err) => {
+    //     console.log(err);
+    //   })
+    // },
   },
-  mounted() {
-      this.showAll();
-  }
+  // mounted() {
+  //     this.showAll();
+  // }
 }
 </script>
 

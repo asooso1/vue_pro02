@@ -7,9 +7,15 @@
       <div class="login-join">
         <button 
         class="bttn-stretch bttn-md bttn-danger join-btn"
+        @click="goToTitle()"
+        >
+        <p id="nav-text">직책</p>
+        </button> 
+        <button 
+        class="bttn-stretch bttn-md bttn-danger join-btn"
         @click="goToGrade()"
         >
-        <p id="nav-text">조직도</p>
+        <p id="nav-text">직급</p>
         </button>      
       </div>
     </div>
@@ -38,6 +44,9 @@ export default {
   methods: {
     goToGrade() {
       this.$router.push({ name: "GradeView" }).catch(() => {});
+    },
+    goToTitle() {
+      this.$router.push({ name: "TitleView" }).catch(() => {});
     },
     goToHome() {
       this.$router.push({ name: "HomeView" }).catch(() => {});
